@@ -18,12 +18,12 @@ const getAllBreeds = breeds => {
   }
 }
 
-export const selectBreed = (breed, breedId) => {
+export const selectBreed = (breedName) => {
   return (dispatch) => {
-    return fetch(`https://dog.ceo/api/breed/${breedId}/images`)
+    return fetch(`https://dog.ceo/api/breed/${breedName}/images`)
       .then(response => response.json())
       .then(breed => {
-        dispatch(getBreed(breed))
+        dispatch(getBreed(breed.message))
       })
       .catch(error => console.log(error));
   };
@@ -36,20 +36,20 @@ const getBreed = breed => {
   }
 }
 
-export const selectSubBreed = (breed, breedId) => {
+export const selectSubBreed = (subBreedName) => {
   return (dispatch) => {
-    return fetch(`https://dog.ceo/api/breed/${breedId}/list`)
+    return fetch(`https://dog.ceo/api/breed/${subBreedName}/list`)
       .then(response => response.json())
-      .then(breed => {
-        dispatch(getSubBreed(breed))
+      .then(subBreed => {
+        dispatch(getSubBreed(subBreed))
       })
       .catch(error => console.log(error));
   };
 }
 
-const getSubBreed = breed => {
+const getSubBreed = subBreed => {
   return {
     type: types.REQUEST_SUB_BREED,
-    breed
+    subBreed
   }
 }
