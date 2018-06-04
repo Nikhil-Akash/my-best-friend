@@ -5,6 +5,12 @@ export default (state = [], action) => {
     case types.REQUEST_ALL_BREEDS:
       return action.breeds;
 
+    case types.REQUEST_BREED_FAMILY:
+      return action.breed;
+
+    // case types.REQUEST_SUB_BREED:
+    //   return action.breed;
+
     default:
       return state;
   }
