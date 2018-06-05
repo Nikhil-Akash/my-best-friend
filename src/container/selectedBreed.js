@@ -10,10 +10,14 @@ class SelectedBreed extends Component {
       <div>
         <h1 className="-text-center">{this.props.breedName}</h1>
 
-        <SubBreedMenu
-          breedName={this.props.breedName}
-          subBreedList={this.props.subBreedList}
-        />
+        {(this.props.subBreedList.length > 0) ?
+          <SubBreedMenu
+            breedName={this.props.breedName}
+            subBreedList={this.props.subBreedList}
+          />
+        :
+          null
+        }
 
         {allImages}
 
