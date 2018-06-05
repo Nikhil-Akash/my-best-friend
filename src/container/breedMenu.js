@@ -17,6 +17,7 @@ class BreedMenu extends Component {
       breedName: breedName,
     })
     this.props.selectBreed(breedName)
+    this.props.selectSubBreed(breedName)
   }
 
   render() {
@@ -40,6 +41,7 @@ class BreedMenu extends Component {
           <SelectedBreed
             breed={this.props.breed}
             breedName={this.state.breedName}
+            subBreedList={this.props.subBreed}
           />
         }
       </div>
@@ -50,7 +52,8 @@ class BreedMenu extends Component {
 const mapStatesToProps = (state) => {
   return ({
     breeds: state.breeds,
-    breed: state.breed
+    breed: state.breed,
+    subBreed: state.subBreed
   });
 };
 

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { loadAllBreeds } from '../action/index';
 import BreedMenu from './breedMenu'
-import SelectedBreed from './selectedBreed'
 
 class Main extends Component {
   constructor(props){
@@ -47,7 +46,8 @@ class Main extends Component {
 const mapStatesToProps = (state) => {
   return ({
     breeds: state.breeds,
-    breed: state.breed
+    breed: state.breed,
+    subBreed: state.subBreed
   });
 };
 
