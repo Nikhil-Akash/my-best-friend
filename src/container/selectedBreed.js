@@ -19,7 +19,15 @@ class SelectedBreed extends Component {
           null
         }
 
-        {allImages}
+        {this.props.selectedSubBreed ?
+
+          <p>hello</p>
+
+        :
+          <div>
+            {allImages}
+          </div>
+        }
 
       </div>
     );

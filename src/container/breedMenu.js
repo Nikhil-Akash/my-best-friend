@@ -7,7 +7,8 @@ class BreedMenu extends Component {
   constructor(props){
     super(props);
     this.state = {
-      breedName: ""
+      breedName: "",
+      selectedSubBreed: false
     }
   }
 
@@ -42,6 +43,7 @@ class BreedMenu extends Component {
             breed={this.props.breed}
             breedName={this.state.breedName}
             subBreedList={this.props.subBreeds}
+            selectedSubBreed={this.state.selectedSubBreed}
           />
         }
       </div>
