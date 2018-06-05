@@ -7,17 +7,16 @@ class Main extends Component {
   constructor(props){
     super(props);
     this.state = {
-      allBreeds: true,
+      allBreeds: false,
       selectedBreed: false,
-      breeds: this.props.breeds,
-      breed: ""
+      breedName: ""
     }
   }
 
   toggleSelectedBreed = (breedName) => {
     this.setState({
       selectedBreed: !this.state.selectBreed,
-      breed: breedName,
+      breedName: breedName,
     })
     this.props.selectBreed(breedName)
   }
@@ -29,13 +28,14 @@ class Main extends Component {
   render() {
     const listOfBreeds = Object.keys(this.props.breeds);
 
-    const breedItems = listOfBreeds.map((breed, index) =>
+    const breedNames = listOfBreeds.map((breedName, index) =>
       <tr key={index} className="gds-table__row">
-        <td key={index}><a onClick={() => this.toggleSelectedBreed(breed)}>{breed}</a></td>
+        <td key={index}><a onClick={() => this.toggleSelectedBreed(breedName)}>{breedName}</a></td>
       </tr>
     );
 
     return (
+
       <main className="gds-segment">
 
         {/* The Options - Search Bar & Choose Breed Button  */}
@@ -45,7 +45,7 @@ class Main extends Component {
         {/* when breed is selected, state.allBreeds is false, replace all the page content in main with Selected Breed container */}
         {/* Selected Breed view will have a side nav bar to select another breed; when selected, the side nav bar will clear off side */}
 
-        {(this.state.allBreeds && !this.state.selectedBreed) ?
+        {(!this.state.allBreeds && !this.state.selectedBreed) ?
           <div>
             <div>
               <input placeholder="Search Breed" />
@@ -62,15 +62,15 @@ class Main extends Component {
                   <tr className="gds-table__row">
                     <td># of Breeds: {listOfBreeds.length}</td>
                   </tr>
-                  {breedItems}
+                  {breedNames}
                 </tbody>
               </table>
             </div>
           </div>
         :
           <SelectedBreed
-            breeds={this.state.breeds}
-            breed={this.state.breed}
+            breed={this.props.breed}
+            breedName={this.state.breedName}
           />
         }
 
@@ -82,6 +82,7 @@ class Main extends Component {
 const mapStatesToProps = (state) => {
   return ({
     breeds: state.breeds,
+    breed: state.breed
   });
 };
 
