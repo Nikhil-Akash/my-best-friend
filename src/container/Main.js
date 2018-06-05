@@ -47,6 +47,7 @@ const mapStatesToProps = (state) => {
   return ({
     breeds: state.breeds,
     breed: state.breed,
+    subBreeds: state.subBreeds,
     subBreed: state.subBreed
   });
 };

@@ -31,14 +31,32 @@ export const selectBreed = (breedName) => {
 
 const getBreed = breed => {
   return {
-    type: types.REQUEST_BREED_FAMILY,
+    type: types.REQUEST_BREED,
     breed
   }
 }
 
-export const selectSubBreed = (breedName) => {
+export const loadSubBreeds = (breedName) => {
   return (dispatch) => {
     return fetch(`https://dog.ceo/api/breed/${breedName}/list`)
+      .then(response => response.json())
+      .then(subBreeds => {
+        dispatch(getAllSubBreeds(subBreeds.message))
+      })
+      .catch(error => console.log(error));
+  };
+}
+
+const getAllSubBreeds = subBreeds => {
+  return {
+    type: types.REQUEST_ALL_SUB_BREEDS,
+    subBreeds
+  }
+}
+
+export const selectSubBreed = (breedName, subBreedName) => {
+  return (dispatch) => {
+    return fetch(`https://dog.ceo/api/breed/${breedName}/${subBreedName}/images`)
       .then(response => response.json())
       .then(subBreed => {
         dispatch(getSubBreed(subBreed.message))

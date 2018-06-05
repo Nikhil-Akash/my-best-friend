@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { selectBreed, selectSubBreed } from '../action/index';
+import { selectBreed, loadSubBreeds, selectSubBreed } from '../action/index';
 import SelectedBreed from './selectedBreed'
 
 class BreedMenu extends Component {
@@ -17,7 +17,7 @@ class BreedMenu extends Component {
       breedName: breedName,
     })
     this.props.selectBreed(breedName)
-    this.props.selectSubBreed(breedName)
+    this.props.loadSubBreeds(breedName)
   }
 
   render() {
@@ -41,7 +41,7 @@ class BreedMenu extends Component {
           <SelectedBreed
             breed={this.props.breed}
             breedName={this.state.breedName}
-            subBreedList={this.props.subBreed}
+            subBreedList={this.props.subBreeds}
           />
         }
       </div>
@@ -53,8 +53,9 @@ const mapStatesToProps = (state) => {
   return ({
     breeds: state.breeds,
     breed: state.breed,
+    subBreeds: state.subBreeds,
     subBreed: state.subBreed
   });
 };
 
-export default connect(mapStatesToProps, { selectBreed, selectSubBreed })(BreedMenu);
+export default connect(mapStatesToProps, { selectBreed, loadSubBreeds, selectSubBreed })(BreedMenu);
