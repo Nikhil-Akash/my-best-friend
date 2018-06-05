@@ -36,12 +36,12 @@ const getBreed = breed => {
   }
 }
 
-export const selectSubBreed = (subBreedName) => {
+export const selectSubBreed = (breedName) => {
   return (dispatch) => {
-    return fetch(`https://dog.ceo/api/breed/${subBreedName}/list`)
+    return fetch(`https://dog.ceo/api/breed/${breedName}/list`)
       .then(response => response.json())
       .then(subBreed => {
-        dispatch(getSubBreed(subBreed))
+        dispatch(getSubBreed(subBreed.message))
       })
       .catch(error => console.log(error));
   };
