@@ -19,23 +19,23 @@ class SubBreedMenu extends Component {
   }
 
   render() {
-    debugger;
-    const theSubBreeds = this.props.subBreedList.map((subBreed, index) => <td key={index} onClick={()=>this.toggleSelectSubBreed(index)}>{subBreed}</td>)
+    // const theSubBreeds = this.props.subBreedList.map((subBreed, index) => <td key={index} onClick={()=>this.toggleSelectSubBreed(index)}>{subBreed}</td>)
+
+    const theSubBreeds = this.props.subBreedList.map((subBreed, index) =>     <li key={index} class="gds-ranker__item">
+            <div class="gds-ranker__item-icon" data-tooltip={subBreed}>
+                <img class="gds-ranker__image" src="https://assets.ggops.com/images/ken.png" />
+            </div>
+            <div class="gds-ranker__item-number gds-ranker__item-number--secondary">{subBreed}</div>
+        </li>)
 
     return (
-      <div className="gds-table--responsive">
-        <table className="gds-table gds-table--sm" data-gds-table="">
-          <thead>
-            <tr className="gds-table__row">
-              <th colSpan="2" className="gds-table__header" data-gds-table-header="">Sub-Breeds</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr className="gds-table__row">
-              {theSubBreeds}
-            </tr>
-          </tbody>
-        </table>
+      <div class="gds-leaderboard__topfive">
+          <div class="gds-ranker gds-ranker--lg">
+            <ul class="gds-ranker__list">
+                {theSubBreeds}
+            </ul>
+            <div class="gds-ranker__connector"></div>
+          </div>
       </div>
     );
   }
