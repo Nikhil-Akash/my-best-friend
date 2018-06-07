@@ -5,7 +5,6 @@ export const loadAllBreeds = () => {
     return fetch('https://dog.ceo/api/breeds/list/all')
       .then(response => response.json())
       .then(breeds => {
-        debugger
         dispatch(getAllBreeds(breeds.message))
       })
       .catch(error => console.log(error));
@@ -36,24 +35,6 @@ const getBreed = breed => {
     breed
   }
 }
-
-// export const loadRandomSelectBreed = (breedName) => {
-//   return (dispatch) => {
-//     return fetch(`https://dog.ceo/api/breed/${breedName}/images/random`)
-//       .then(response => response.json())
-//       .then(randomBreedImg => {
-//         dispatch(getBreed(randomBreedImg.message))
-//       })
-//       .catch(error => console.log(error));
-//   };
-// }
-//
-// const getRandomBreedImg = randomBreedImg => {
-//   return {
-//     type: types.REQUEST_RANDOM_BREED_IMG,
-//     randomBreedImg
-//   }
-// }
 
 export const loadSubBreeds = (breedName) => {
   return (dispatch) => {
@@ -90,21 +71,3 @@ const getSubBreed = subBreed => {
     subBreed
   }
 }
-//
-// export const loadRandomSubBreed = (breedName, subBreedName) => {
-//   return (dispatch) => {
-//     return fetch(`https://dog.ceo/api/breed/${breedName}/${subBreedName}/images/random`)
-//       .then(response => response.json())
-//       .then(randomSubBreed => {
-//         dispatch(getRandomSubBreed(randomSubBreed.message))
-//       })
-//       .catch(error => console.log(error));
-//   };
-// }
-//
-// const getRandomSubBreed = randomSubBreed => {
-//   return {
-//     type: types.REQUEST_RANDOM_SUB_BREED,
-//     randomSubBreed
-//   }
-// }
