@@ -20,20 +20,20 @@ class SubBreedMenu extends Component {
 
   render() {
 
-    const theSubBreeds = this.props.subBreedList.map((subBreed, index) =>     <li key={index} class="gds-ranker__item">
-            <div class="gds-ranker__item-icon" data-tooltip={subBreed}>
-                <img class="gds-ranker__image" src="https://assets.ggops.com/images/ken.png" alt={subBreed}/>
+    const theSubBreeds = this.props.subBreedList.map((subBreed, index) =>     <li key={index} className="gds-ranker__item">
+            <div className="gds-ranker__item-icon" data-tooltip={subBreed}>
+                <img className="gds-ranker__image" src="https://assets.ggops.com/images/ken.png" alt={subBreed}/>
             </div>
-            <div class="gds-ranker__item-number gds-ranker__item-number--secondary">{subBreed}</div>
+            <div className="gds-ranker__item-number gds-ranker__item-number--secondary">{subBreed}</div>
         </li>)
 
     return (
-      <div class="gds-leaderboard__topfive">
-          <div class="gds-ranker gds-ranker--lg">
-            <ul class="gds-ranker__list">
+      <div className="gds-leaderboard__topfive">
+          <div className="gds-ranker gds-ranker--lg">
+            <ul className="gds-ranker__list">
                 {theSubBreeds}
             </ul>
-            <div class="gds-ranker__connector"></div>
+            <div className="gds-ranker__connector"></div>
           </div>
       </div>
     );
