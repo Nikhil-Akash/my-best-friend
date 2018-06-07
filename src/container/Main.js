@@ -24,13 +24,13 @@ class Main extends Component {
 
   render() {
     return (
-      <main className="gds-segment">
+      <main>
         <button type="button" onClick={() => this.toggleChooseBreed()}>Choose A Breed</button>
 
         {!this.state.chooseBreed ?
           <div className="gds-segment">
-            <h1 className="-text-center">All Dogs</h1>
-            <p className="-text-center">Gallery of dogs</p>
+            <h1 className="gds-text--header-md -text-center">All Dogs</h1>
+            <p className="gds-text__header-sm -text-center">Gallery of dogs</p>
           </div>
         :
           <BreedMenu

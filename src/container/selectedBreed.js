@@ -4,11 +4,12 @@ import SubBreedMenu from './subBreedMenu';
 class SelectedBreed extends Component {
 
   render() {
-    const allImages = this.props.breed.map((image, index) => <img key={index} src={image} alt="test"/> );
+
+    const allImages = this.props.breed.map((image, index) => <img key={index} class="gds-image" src={image} alt="Dog"/> );
 
     return (
-      <div>
-        <h1 className="-text-center">{this.props.breedName}</h1>
+      <div className="selectedBreed">
+        <h1 className="gds-text--header-md -text-center">{this.props.breedName}</h1>
 
         {(this.props.subBreedList.length > 0) ?
           <SubBreedMenu
@@ -24,7 +25,7 @@ class SelectedBreed extends Component {
           <p>hello</p>
 
         :
-          <div>
+          <div className="gds-container">
             {allImages}
           </div>
         }
