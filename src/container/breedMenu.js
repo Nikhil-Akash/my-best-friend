@@ -24,10 +24,6 @@ class BreedMenu extends Component {
   render() {
     const listOfBreeds = Object.keys(this.props.breeds)
 
-    // const breedItems = listOfBreeds.map((breedName, index) =>
-    //   <li key={index}><a onClick={() => this.toggleSelectedBreed(breedName)}>{breedName}</a></li>
-    // );
-
     const breedItems = listOfBreeds.map((breedName, index) =>
       <li key={index} className="gds-nav-tabs__list-item" data-gds-nav-item=""><a className="gds-nav-tabs__link" data-gds-nav-button={index} data-gds-nav-type="tab" onClick={() => this.toggleSelectedBreed(breedName)}>{breedName}</a></li>
     );
@@ -66,5 +62,3 @@ const mapStatesToProps = (state) => {
 };
 
 export default connect(mapStatesToProps, { selectBreed, loadSubBreeds, selectSubBreed })(BreedMenu);
-
-// <li className=""><input placeholder="Search Breed" /></li>
