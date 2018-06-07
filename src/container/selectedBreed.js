@@ -22,7 +22,7 @@ class SelectedBreed extends Component {
           <p>This Breed is a mystery. We do not know what it looks like. If you do, please let us know.</p>
 
         :
-        <div class="gds-leaderboard">
+        <div className="gds-leaderboard">
             {(this.props.subBreedList.length > 0) ?
               <SubBreedMenu
                 breedName={this.props.breedName}
@@ -31,7 +31,7 @@ class SelectedBreed extends Component {
             :
               null
             }
-            <div class="gds-leaderboard__grid">
+            <div className="gds-leaderboard__grid">
               {allImages}
             </div>
         </div>
