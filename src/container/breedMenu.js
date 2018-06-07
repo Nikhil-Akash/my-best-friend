@@ -24,20 +24,25 @@ class BreedMenu extends Component {
   render() {
     const listOfBreeds = Object.keys(this.props.breeds)
 
+    // const breedItems = listOfBreeds.map((breedName, index) =>
+    //   <li key={index}><a onClick={() => this.toggleSelectedBreed(breedName)}>{breedName}</a></li>
+    // );
+
     const breedItems = listOfBreeds.map((breedName, index) =>
-      <li key={index}><a onClick={() => this.toggleSelectedBreed(breedName)}>{breedName}</a></li>
+      <li key={index} className="gds-nav-tabs__list-item" data-gds-nav-item=""><a className="gds-nav-tabs__link" data-gds-nav-button={index} data-gds-nav-type="tab" onClick={() => this.toggleSelectedBreed(breedName)}>{breedName}</a></li>
     );
 
     return (
       <div>
         {!this.state.selectedBreed ?
-          <nav className="-float-left">
-            <ul className="gds-nav-tabs gds-nav-tabs--stacked">
-              <li><input placeholder="Search Breed" /></li>
+
+          <nav className="-float-left -m-b-3" data-gds-nav-controls="">
+            <ul className="gds-nav-tabs gds-nav-tabs--stacked" data-gds-nav="3">
               <li># of Breeds: {listOfBreeds.length}</li>
               {breedItems}
             </ul>
           </nav>
+
         :
           <SelectedBreed
             breed={this.props.breed}
@@ -61,3 +66,5 @@ const mapStatesToProps = (state) => {
 };
 
 export default connect(mapStatesToProps, { selectBreed, loadSubBreeds, selectSubBreed })(BreedMenu);
+
+// <li className=""><input placeholder="Search Breed" /></li>
