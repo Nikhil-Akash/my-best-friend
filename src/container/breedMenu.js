@@ -8,7 +8,6 @@ class BreedMenu extends Component {
     super(props);
     this.state = {
       breedName: "",
-      selectedSubBreed: false
     }
   }
 
@@ -31,20 +30,17 @@ class BreedMenu extends Component {
     return (
       <div>
         {!this.state.selectedBreed ?
-
           <nav className="-float-left -m-b-3" data-gds-nav-controls="">
             <ul className="gds-nav-tabs gds-nav-tabs--stacked" data-gds-nav="3">
               <li># of Breeds: {listOfBreeds.length}</li>
               {breedItems}
             </ul>
           </nav>
-
         :
           <SelectedBreed
             breed={this.props.breed}
             breedName={this.state.breedName}
             subBreedList={this.props.subBreeds}
-            selectedSubBreed={this.state.selectedSubBreed}
           />
         }
       </div>
