@@ -30,7 +30,6 @@ class Main extends Component {
         {!this.state.chooseBreed ?
           <div className="gds-segment">
             <h1 className="gds-text--header-md -text-tr-up -text-center">All Dogs</h1>
-            <p className="gds-text__header-sm -text-center">Gallery of dogs</p>
           </div>
         :
           <BreedMenu
