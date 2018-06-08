@@ -29,10 +29,11 @@ class SelectedBreed extends Component {
 
         :
         <div className="gds-leaderboard">
-            {(this.props.subBreedList.length > 0) ?
+            {(this.props.haveSubBreeds.length > 0) ?
               <SubBreedMenu
                 breedName={this.props.breedName}
-                subBreedList={this.props.subBreedList}
+                haveSubBreeds={this.props.haveSubBreeds}
+                selectedSubBreed={this.state.selectedSubBreed}
               />
             :
               null
@@ -50,3 +51,6 @@ class SelectedBreed extends Component {
 }
 
 export default SelectedBreed;
+// <div className="gds-leaderboard__grid">
+//   {allImages}
+// </div>
