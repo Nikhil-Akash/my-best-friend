@@ -41,6 +41,7 @@ class BreedMenu extends Component {
             breed={this.props.breed}
             breedName={this.state.breedName}
             haveSubBreeds={this.props.subBreeds}
+            subBreed={this.props.subBreed}
           />
         }
       </div>
