@@ -18,6 +18,7 @@ class SubBreedMenu extends Component {
   }
 
   render() {
+    debugger
     const breedName = this.props.breedName
     const theSubBreeds = this.props.haveSubBreeds.map((subBreed, index) =>     <li key={index} className="gds-ranker__item">
             <div className="gds-ranker__item-icon" data-tooltip={subBreed}>
@@ -25,6 +26,14 @@ class SubBreedMenu extends Component {
             </div>
             <div className="gds-ranker__item-number gds-ranker__item-number--secondary">{subBreed}</div>
         </li>)
+
+    const subBreedImg = this.props.subBreed.map((subBreedImg, index) => <div key={index}>
+        <img key={index} className="gds-ranker-ensign__thumbnail gds-ranker-ensign__thumbnail--lg" src={subBreedImg} alt="Dog"/>
+
+          <span className="gds-ranker-ensign__number">
+            {index}
+          </span>
+      </div>);
 
     return (
       <div className="gds-leaderboard__topfive">
@@ -34,6 +43,7 @@ class SubBreedMenu extends Component {
             </ul>
             <div className="gds-ranker__connector"></div>
           </div>
+          {subBreedImg}
       </div>
     );
   }
