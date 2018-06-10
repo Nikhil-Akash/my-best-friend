@@ -25,7 +25,8 @@ class Main extends Component {
   render() {
     return (
       <main>
-        <button type="button" className="gds-button-group__button gds-button--primary" onClick={() => this.toggleChooseBreed()}>Choose A Breed</button>
+
+        <button type="button" id="testButton" className="gds-circular-button -m-r-1 gds-circular-button--lg gds-circular-button--default gds-circular-button--tooltip" data-feedback="Default clicked" data-tooltip="Default" onClick={() => this.toggleChooseBreed()} ><i className="fa fa-paw fa-2x"></i></button>
 
         {!this.state.chooseBreed ?
           <div className="gds-segment">
