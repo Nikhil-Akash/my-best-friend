@@ -1,21 +1,24 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { loadAllBreeds } from '../action/index';
-import BreedMenu from './breedMenu'
+import { loadAllBreeds, selectBreed, loadSubBreeds } from '../action/index';
+import SelectedBreed from './selectedBreed'
 
 class Main extends Component {
   constructor(props){
     super(props);
     this.state = {
-      chooseBreed: false,
       selectedBreed: false,
+      breedName: "",
     }
   }
 
-  toggleChooseBreed = () => {
+  toggleSelectedBreed = (breedName) => {
     this.setState({
-      chooseBreed: !this.state.chooseBreed,
+      selectedBreed: !this.state.selectBreed,
+      breedName: breedName,
     })
+    this.props.selectBreed(breedName)
+    this.props.loadSubBreeds(breedName)
   }
 
   componentDidMount() {
@@ -23,23 +26,47 @@ class Main extends Component {
   }
 
   render() {
-    return (
-      <main>
+    const listOfBreeds = Object.keys(this.props.breeds)
 
-        <button type="button" id="testButton" className="gds-circular-button -m-r-1 gds-circular-button--lg gds-circular-button--default gds-circular-button--tooltip" data-feedback="Default clicked" data-tooltip="Default" onClick={() => this.toggleChooseBreed()} ><i className="fa fa-paw fa-2x"></i></button>
+    const totalBreeds = listOfBreeds.length
 
-        {!this.state.chooseBreed ?
-          <div className="gds-segment">
-            <h1 className="gds-text--header-md -text-tr-up -text-center">All Dogs</h1>
-          </div>
-        :
-          <BreedMenu
-            breeds={this.props.breeds}
-            selectedBreed={this.state.selectedBreed}
-          />
-        }
-      </main>
+    const breedItems = listOfBreeds.map((breedName, index) =>
+      <div key={index} className="gds-card -m-b-0">
+        <div className="gds-card__img-container--top gds-card__img-container">
+          <img className="gds-card__img" src="./images/sample-1.jpg" alt={breedName} />
+        </div>
+        <div className="gds-card__block">
+            <h4 className="gds-card__title">{breedName}</h4>
+            <h2 className="gds-card__hero gds-text--header-md gds-text--hero" onClick={() => this.toggleSelectedBreed(breedName)}>{breedName}</h2>
+            <p className="gds-card__text">I have subBreeds</p>
+        </div>
+      </div>
     );
+
+    return (
+      <div>
+        <div>
+          {!this.state.selectedBreed ?
+            <div>
+              <div className="-text-center">
+                <h1 className="gds-text--header-lg">All Dog Breeds</h1>
+                <p># of Breeds: {totalBreeds}</p>
+              </div>
+              <div className="gds-grid__container gds-grid__container--fluid-xs-1 gds-grid__container--fluid-sm-2 gds-grid__container--fluid-md-3 gds-grid__container--fluid-lg-4 gds-grid__container--fluid-xl-5">
+                {breedItems}
+              </div>
+            </div>
+          :
+            <SelectedBreed
+              breed={this.props.breed}
+              breedName={this.state.breedName}
+              haveSubBreeds={this.props.subBreeds}
+              subBreed={this.props.subBreed}
+            />
+          }
+        </div>
+      </div>
+    )
   }
 }
 
@@ -52,4 +79,4 @@ const mapStatesToProps = (state) => {
   });
 };
 
-export default connect(mapStatesToProps, { loadAllBreeds })(Main);
+export default connect(mapStatesToProps, { loadAllBreeds, selectBreed, loadSubBreeds })(Main);
