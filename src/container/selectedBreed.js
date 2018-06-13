@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import SubBreedMenu from './subBreedMenu';
+import TopFive from './LeaderBoardTopFive';
+import ImgGrid from './LeaderBoardImgGrid';
 
 class SelectedBreed extends Component {
   constructor(props){
@@ -10,32 +11,20 @@ class SelectedBreed extends Component {
   }
 
   render() {
-    const allBreedImg = this.props.breed.map((image, index) => <div key={index}>
-        <img key={index} className="gds-ranker-ensign__thumbnail gds-ranker-ensign__thumbnail--lg" src={image} alt="Dog"/>
-        <span className="gds-ranker-ensign__number">
-          {index}
-        </span>
-      </div>);
-
-
     return (
       <div className="selectedBreed">
-        <h1 className="gds-text--header-md -text-center -text-tr-cap">{this.props.breedName}</h1>
-        <div className="gds-leaderboard">
-            {(this.props.haveSubBreeds.length > 0) ?
-              <SubBreedMenu
+          <h1 className="gds-text--header-md -text-center -text-tr-cap">{this.props.breedName}</h1>
+            <div className="gds-leaderboard">
+              <TopFive
                 breedName={this.props.breedName}
                 haveSubBreeds={this.props.haveSubBreeds}
+              />
+              <ImgGrid
+                breed={this.props.breed}
                 selectedSubBreed={this.state.selectedSubBreed}
                 subBreed={this.props.subBreed}
               />
-            :
-              null
-            }
-            <div className="gds-leaderboard__grid">
-              {allBreedImg}
             </div>
-        </div>
       </div>
     );
   }
