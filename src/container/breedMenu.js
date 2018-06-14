@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { selectBreed, loadSubBreeds, selectSubBreed } from '../action/index';
-import SelectedBreed from './selectedBreed'
+import ChosenBreed from './ChosenBreed'
 
 class BreedMenu extends Component {
   constructor(props){
@@ -37,7 +37,7 @@ class BreedMenu extends Component {
             </ul>
           </nav>
         :
-          <SelectedBreed
+          <ChosenBreed
             breed={this.props.breed}
             breedName={this.state.breedName}
             haveSubBreeds={this.props.subBreeds}

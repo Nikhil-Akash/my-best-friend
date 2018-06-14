@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import SubBreedMenu from './subBreedMenu';
 import BreedProfile from './BreedProfile';
 
-class SelectedBreed extends Component {
+class ChosenBreed extends Component {
   constructor(props){
     super(props);
     this.state = {
@@ -27,4 +26,4 @@ class SelectedBreed extends Component {
   }
 }
 
-export default SelectedBreed;
+export default ChosenBreed;

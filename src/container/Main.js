@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { loadAllBreeds, selectBreed, loadSubBreeds } from '../action/index';
-import SelectedBreed from './selectedBreed'
+import ChosenBreed from './ChosenBreed'
 
 class Main extends Component {
   constructor(props){
@@ -57,7 +57,7 @@ class Main extends Component {
               </div>
             </div>
           :
-            <SelectedBreed
+            <ChosenBreed
               breeds={this.props.breeds}
               breed={this.props.breed}
               breedName={this.state.breedName}
