@@ -3,7 +3,7 @@ import SubBreedMenu from './subBreedMenu';
 import MainBreedImgList from './MainBreedImgList';
 import SubBreedImgList from './SubBreedImgList';
 
-class TopFive extends Component {
+class BreedProfile extends Component {
 
   render() {
     return (
@@ -35,4 +35,4 @@ class TopFive extends Component {
   }
 }
 
-export default TopFive
+export default BreedProfile
