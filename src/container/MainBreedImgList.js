@@ -7,13 +7,13 @@ class MainBreedImgList extends Component {
       <div key={index} className="gds-ranker-grid__ensign">
         <img key={index} className="gds-ranker-ensign__thumbnail gds-ranker-ensign__thumbnail--lg" src={image} alt="Dog"/>
         <span className="gds-ranker-ensign__number">
-          {index}
+          {index+1}
         </span>
       </div>
     );
     return (
       <div className="gds-ranker-grid">
-          {allBreedImg}
+        {allBreedImg}
       </div>
     );
   }
