@@ -58,6 +58,7 @@ class Main extends Component {
             </div>
           :
             <SelectedBreed
+              breeds={this.props.breeds}
               breed={this.props.breed}
               breedName={this.state.breedName}
               haveSubBreeds={this.props.subBreeds}
