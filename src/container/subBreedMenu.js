@@ -23,11 +23,14 @@ class SubBreedMenu extends Component {
     );
 
     return (
-      <div className="gds-ranker gds-ranker--lg">
-        <ul className="gds-ranker__list">
-          {theSubBreeds}
-        </ul>
-        <div className="gds-ranker__connector"></div>
+      <div>
+        <h4 className="-text-center">Choose a Sub-Breed</h4>
+        <div className="gds-ranker gds-ranker--lg">
+          <ul className="gds-ranker__list">
+            {theSubBreeds}
+          </ul>
+          <div className="gds-ranker__connector"></div>
+        </div>
       </div>
     );
   }
