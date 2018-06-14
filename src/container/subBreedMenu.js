@@ -3,16 +3,10 @@ import { connect } from 'react-redux';
 import { selectSubBreed } from '../action/index';
 
 class SubBreedMenu extends Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      selectedSubBreed: false
-    }
-  }
 
   toggleSelectSubBreed = (breedName, subBreed, index) => {
     this.setState({
-      selectedSubBreed: !this.state.selectedSubBreed
+      selectedSubBreed: !this.props.selectedSubBreed
     })
     this.props.selectSubBreed(breedName, subBreed)
   }
@@ -27,7 +21,6 @@ class SubBreedMenu extends Component {
         <div className="gds-ranker__item-number gds-ranker__item-number--secondary">{index}</div>
       </li>
     );
-
 
     return (
       <div className="gds-ranker gds-ranker--lg">
