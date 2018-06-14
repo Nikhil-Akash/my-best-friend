@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import LogoButton from './LogoButton';
-import AllBreeds from './AllBreeds';
 import BreedMenu from '../container/breedMenu';
+import { NavLink } from 'react-router-dom';
 
 class Header extends Component {
   constructor(props){
@@ -19,8 +19,28 @@ class Header extends Component {
   render() {
     return (
       <header>
-        <LogoButton />
-        <AllBreeds toggleChooseBreed={this.toggleChooseBreed} />
+        <nav className="-m-b-3">
+          <ul className="gds-nav">
+            <NavLink
+              to="/"
+              id="AppLogo"
+              ><LogoButton />
+            </NavLink>
+
+            <NavLink
+              to="/all_dogs"
+              id="AppName"
+              >My Best Friend
+            </NavLink>
+
+            <NavLink
+              to="#"
+              id="AppName"
+              onClick={()=>this.toggleChooseBreed()}
+              >All Breeds
+            </NavLink>
+          </ul>
+        </nav>
 
         {!this.state.chooseBreed ?
           null
@@ -35,7 +55,3 @@ class Header extends Component {
 }
 
 export default Header;
-
-// <header className="-color-bg-pri -text-center">
-//   <h1 className="gds-text--header-lg">My Best Friend</h1>
-// </header>
