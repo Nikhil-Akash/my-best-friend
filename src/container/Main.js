@@ -7,7 +7,6 @@ class Main extends Component {
     super(props);
     this.state = {
       breedName: "",
-      hover: false,
     }
   }
 
@@ -23,23 +22,11 @@ class Main extends Component {
     })
   }
 
-  toggleHover = () => {
-    this.setState({
-      hover: !this.state.hover,
-    })
-  }
-
   componentDidMount = () => {
     this.props.loadAllBreeds();
   }
 
   render() {
-    var linkStyle;
-    if (this.state.toggleHover) {
-      linkStyle = {textColor: 'green'}
-    } else {
-      linkStyle = {textColor: 'blue'}
-    }
 
     const listOfBreeds = Object.keys(this.props.breeds)
 
@@ -47,11 +34,10 @@ class Main extends Component {
 
     const breedItems = listOfBreeds.map((breedName, index) =>
     <div key={index} className="gds-ranker-grid__ensign">
-      <div className="gds-ranker-ensign__content">
-          <span className="gds-ranker-ensign__title--lg" style={linkStyle}  onClick={()=>this.toggleSelectedBreed(breedName)}  onMouseOver={this.toggleHover}>{breedName}</span>
+      <div className="gds-ranker-ensign__content" onClick={()=>this.toggleSelectedBreed(breedName)}>
+        <span className="gds-ranker-ensign__title--lg" onClick={()=>this.toggleSelectedBreed(breedName)}>{breedName}</span>
       </div>
-      <span class="gds-ranker-ensign__number gds-ranker-ensign__number--md">{index+1}</span>
-
+      <span className="gds-ranker-ensign__number gds-ranker-ensign__number--md">{index+1}</span>
     </div>
     );
 
@@ -83,12 +69,3 @@ const mapStatesToProps = (state) => {
 };
 
 export default connect(mapStatesToProps, { loadAllBreeds, selectBreed, loadSubBreeds })(Main);
-
-// <div key={index} className="gds-card -m-b-0">
-//   <div className="gds-card__block">
-//     <h2 className="gds-card__hero gds-text--header-md gds-text--hero" style={linkStyle} onClick={() => this.toggleSelectedBreed(breedName)}  onMouseOver={this.toggleHover}>{breedName}</h2>
-//   </div>
-// </div>
-// <div className="gds-grid__container gds-grid__container--fluid-xs-1 gds-grid__container--fluid-sm-2 gds-grid__container--fluid-md-3 gds-grid__container--fluid-lg-4 gds-grid__container--fluid-xl-5">
-//   {breedItems}
-// </div>
