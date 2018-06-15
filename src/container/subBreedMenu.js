@@ -6,7 +6,8 @@ class SubBreedMenu extends Component {
 
   toggleSelectSubBreed = (breedName, subBreed, index) => {
     this.setState({
-      selectedSubBreed: !this.props.selectedSubBreed
+      selectedSubBreed: !this.props.selectedSubBreed,
+      subBreedName: subBreed
     })
     this.props.selectSubBreed(breedName, subBreed)
   }
@@ -17,7 +18,7 @@ class SubBreedMenu extends Component {
       <div key={index} className="gds-ranker-grid__ensign gds-ranker-ensign--secondary">
         <span className="gds-number-circle">{index+1}</span>
         <div className="gds-ranker-ensign__content">
-            <span className="gds-ranker-ensign__title--lg" onClick={()=>this.toggleSelectSubBreed(breedName, subBreed)}>{subBreed}</span>
+          <span className="gds-ranker-ensign__title--lg" onClick={()=>this.toggleSelectSubBreed(breedName, subBreed)}>{subBreed}</span>
         </div>
       </div>
     );

@@ -4,6 +4,12 @@ import MainBreedImgList from './MainBreedImgList';
 import SubBreedImgList from './SubBreedImgList';
 
 class BreedProfile extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      subBreedName: ""
+    }
+  }
 
   render() {
     return (
@@ -17,6 +23,7 @@ class BreedProfile extends Component {
                 subBreeds={this.props.subBreeds}
                 subBreed={this.props.subBreed}
                 selectedSubBreed={this.props.selectedSubBreed}
+                subBreedName={this.state.subBreedName}
               />
           }
         </div>
@@ -24,10 +31,12 @@ class BreedProfile extends Component {
           {(this.props.subBreeds <= 0) ?
             <MainBreedImgList
               breed={this.props.breed}
+              breedName={this.props.breedName}
             />
           :
             <SubBreedImgList
               subBreed={this.props.subBreed}
+              subBreedName={this.props.subBreedName}
             />
           }
         </div>
