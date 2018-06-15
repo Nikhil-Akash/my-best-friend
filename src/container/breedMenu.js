@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { selectBreed, loadSubBreeds, selectSubBreed } from '../action/index';
-import ChosenBreed from './ChosenBreed'
 
 class BreedMenu extends Component {
   constructor(props){
@@ -13,11 +12,14 @@ class BreedMenu extends Component {
 
   toggleSelectedBreed = (breedName) => {
     this.setState({
-      selectedBreed: !this.state.selectBreed,
       breedName: breedName,
     })
     this.props.selectBreed(breedName)
     this.props.loadSubBreeds(breedName)
+    this.props.history.push({
+      pathname: `/all_dogs/${breedName}`,
+      state: {breedName: breedName}
+    })
   }
 
   render() {
@@ -29,21 +31,12 @@ class BreedMenu extends Component {
 
     return (
       <div>
-        {!this.state.selectedBreed ?
-          <nav className="-float-left -m-b-3" data-gds-nav-controls="">
-            <ul className="gds-nav-tabs gds-nav-tabs--stacked" data-gds-nav="3">
-              <li># of Breeds: {listOfBreeds.length}</li>
-              {breedItems}
-            </ul>
-          </nav>
-        :
-          <ChosenBreed
-            breed={this.props.breed}
-            breedName={this.state.breedName}
-            haveSubBreeds={this.props.subBreeds}
-            subBreed={this.props.subBreed}
-          />
-        }
+        <nav className="-m-b-3 -float-left -clear-right">
+          <ul className="gds-nav-tabs gds-nav-tabs--stacked" data-gds-nav="3">
+            <li className="gds-text--body-sm"><a className="gds-nav-tabs__link">All {listOfBreeds.length} Dog Breeds</a></li>
+            {breedItems}
+          </ul>
+        </nav>
       </div>
     );
   }
