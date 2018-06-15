@@ -16,7 +16,7 @@ class ChosenBreed extends Component {
         <h1 className="gds-text--header-md -text-center -text-tr-cap">{this.props.match.params.breeds}</h1>
           <BreedProfile
             breed={this.props.breed}
-            breedName={this.props.location.state.breedName}
+            breedName={this.props.match.params.breeds}
             subBreeds={this.props.subBreeds}
             selectedSubBreed={this.state.selectedSubBreed}
             subBreed={this.props.subBreed}
