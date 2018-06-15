@@ -1,23 +1,23 @@
 import React, { Component } from 'react';
 import BreedProfile from './BreedProfile';
+import { connect } from 'react-redux';
 
 class ChosenBreed extends Component {
   constructor(props){
     super(props);
     this.state = {
-      selectedSubBreed: false
+      selectedSubBreed: false,
     }
   }
 
   render() {
-
     return (
       <div className="selectedBreed">
-        <h1 className="gds-text--header-md -text-center -text-tr-cap">{this.props.breedName}</h1>
+        <h1 className="gds-text--header-md -text-center -text-tr-cap">{this.props.match.params.breeds}</h1>
           <BreedProfile
             breed={this.props.breed}
-            breedName={this.props.breedName}
-            haveSubBreeds={this.props.haveSubBreeds}
+            breedName={this.props.location.state.breedName}
+            subBreeds={this.props.subBreeds}
             selectedSubBreed={this.state.selectedSubBreed}
             subBreed={this.props.subBreed}
           />
@@ -26,4 +26,13 @@ class ChosenBreed extends Component {
   }
 }
 
-export default ChosenBreed;
+const mapStatesToProps = (state) => {
+  return ({
+    breeds: state.breeds,
+    breed: state.breed,
+    subBreeds: state.subBreeds,
+    subBreed: state.subBreed
+  });
+};
+
+export default connect(mapStatesToProps)(ChosenBreed);
