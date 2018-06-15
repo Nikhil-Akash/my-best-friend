@@ -47,8 +47,8 @@ class Main extends Component {
     return (
       <main>
         <div className="-text-center">
-          <h1 className="gds-text--header-lg">All Dog Breeds</h1>
-          <p># of Breeds: {totalBreeds}</p>
+          <h1 className="gds-text--header-xl">All Dog Breeds</h1>
+          <p className="gds-text--header-xs"># of Breeds: {totalBreeds}</p>
         </div>
         <div className="gds-grid__container gds-grid__container--fluid-xs-1 gds-grid__container--fluid-sm-2 gds-grid__container--fluid-md-3 gds-grid__container--fluid-lg-4 gds-grid__container--fluid-xl-5">
           {breedItems}

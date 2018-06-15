@@ -24,7 +24,7 @@ class SubBreedMenu extends Component {
 
     return (
       <div>
-        <h4 className="-text-center">Choose a Sub-Breed</h4>
+        <h4 className="gds-text--header-sm gds-text--bold -m-b-2 -text-center">Choose a Sub-Breed</h4>
         <div className="gds-ranker-grid">
           {theSubBreeds}
         </div>

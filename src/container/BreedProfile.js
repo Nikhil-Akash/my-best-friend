@@ -10,7 +10,7 @@ class BreedProfile extends Component {
       <div>
         <div className="sub-breed-menu">
           {(this.props.subBreeds <= 0) ?
-              <h4 className="-text-center">One of a kind. There are no sub-breeds for this dog.</h4>
+              <p className="gds-text--bold -m-b-2 -text-center">One of a kind. There are no sub-breeds for this dog.</p>
             :
               <SubBreedMenu
                 breedName={this.props.breedName}

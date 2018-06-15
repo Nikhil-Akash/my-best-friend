@@ -13,7 +13,7 @@ class ChosenBreed extends Component {
   render() {
     return (
       <div className="selectedBreed">
-        <h1 className="gds-text--header-md -text-center -text-tr-cap">{this.props.match.params.breeds}</h1>
+        <h1 className="gds-text--header-lg -text-center -text-tr-cap">{this.props.match.params.breeds}</h1>
           <BreedProfile
             breed={this.props.breed}
             breedName={this.props.match.params.breeds}
