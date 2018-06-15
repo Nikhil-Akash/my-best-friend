@@ -4,7 +4,7 @@ import Header from './component/Header';
 import Footer from './component/Footer';
 import WelcomePage from './component/WelcomePage';
 import Main from './container/Main'
-import selectedBreed from './container/selectedBreed'
+import ChosenBreed from './container/ChosenBreed'
 
 class Router extends Component {
   render() {
@@ -14,7 +14,7 @@ class Router extends Component {
         <Switch>
           <Route exact path="/" component={WelcomePage} />
           <Route exact path="/all_dogs" component={Main} />
-          <Route exact path="/all_dogs/selected_breed" component={selectedBreed} />
+          <Route exact path="/all_dogs/:breeds" component={ChosenBreed} />
         </Switch>
         <Footer />
       </div>
