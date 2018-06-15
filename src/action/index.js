@@ -71,3 +71,21 @@ const getSubBreed = subBreed => {
     subBreed
   }
 }
+
+export const loadRandomBreed = () => {
+  return (dispatch) => {
+    return fetch('https://dog.ceo/api/breeds/image/random')
+      .then(response => response.json())
+      .then(randomBreed => {
+        dispatch(getRandomBreed(randomBreed.message))
+      })
+      .catch(error => console.log(error));
+  };
+}
+
+const getRandomBreed = randomBreed => {
+  return {
+    type: types.REQUEST_RANDOM_BREED,
+    randomBreed
+  }
+}
