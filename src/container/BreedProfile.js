@@ -8,25 +8,26 @@ class BreedProfile extends Component {
   render() {
     return (
       <div>
-        <div>
-          {(this.props.haveSubBreeds <= 0) ?
+        <div className="sub-breed-menu">
+          {(this.props.subBreeds <= 0) ?
               <h4 className="-text-center">One of a kind. There are no sub-breeds for this dog.</h4>
             :
               <SubBreedMenu
                 breedName={this.props.breedName}
-                haveSubBreeds={this.props.haveSubBreeds}
+                subBreeds={this.props.subBreeds}
                 subBreed={this.props.subBreed}
                 selectedSubBreed={this.props.selectedSubBreed}
               />
           }
         </div>
-        <div>
-          {(this.props.haveSubBreeds <= 0) ?
+        <div className="selected-breed-gallery">
+          {(this.props.subBreeds <= 0) ?
             <MainBreedImgList
               breed={this.props.breed}
             />
           :
-            <SubBreedImgList  subBreed={this.props.subBreed}
+            <SubBreedImgList
+              subBreed={this.props.subBreed}
             />
           }
         </div>
