@@ -14,7 +14,7 @@ class SubBreedMenu extends Component {
   render() {
     const breedName = this.props.breedName
     const theSubBreeds = this.props.subBreeds.map((subBreed, index) =>
-      <div className="gds-ranker-grid__ensign">
+      <div key={index} className="gds-ranker-grid__ensign">
         <span className="gds-number-circle">{index+1}</span>
         <div className="gds-ranker-ensign__content">
             <span className="gds-ranker-ensign__title--lg" onClick={()=>this.toggleSelectSubBreed(breedName, subBreed)}>{subBreed}</span>
