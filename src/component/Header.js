@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import LogoButton from './LogoButton';
-import { NavLink } from 'react-router-dom';
 
 class Header extends Component {
   constructor(props){
@@ -18,31 +17,16 @@ class Header extends Component {
   render() {
     return (
       <header>
-        <nav className="-m-b-3">
-          <ul className="gds-nav">
-            <NavLink
-              to="/"
-              id="AppLogo"
-              ><LogoButton />
-            </NavLink>
+        <nav class="-m-b-3" data-gds-nav-controls="">
+          <ul class="gds-nav-tabs gds-nav-tabs--underline gds-nav-tabs--justified" data-gds-nav="7">
+            <li class="gds-nav-tabs__list-item gds-nav-tabs__list-item--underline gds-nav-tabs__list-item--active" data-gds-nav-item=""><a class="gds-nav-tabs__link gds-nav-tabs__link--underline" data-gds-nav-button="1" data-gds-nav-type="tab" href="/"><LogoButton />My Best Friend</a></li>
 
-            <NavLink
-              to="#"
-              id="AppName"
-              >My Best Friend
-            </NavLink>
-
-            <NavLink
-              to="/all_dogs"
-              id="AppName"
-              >All Breeds
-            </NavLink>
+            <li class="gds-nav-tabs__list-item gds-nav-tabs__list-item--underline" data-gds-nav-item=""><a class="gds-nav-tabs__link gds-nav-tabs__link--underline" data-gds-nav-button="2" data-gds-nav-type="tab" href="/all_dogs">All Breeds</a></li>
           </ul>
         </nav>
       </header>
     );
   }
-
 }
 
 export default Header;
