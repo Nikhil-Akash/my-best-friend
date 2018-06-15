@@ -28,26 +28,18 @@ class Header extends Component {
             </NavLink>
 
             <NavLink
-              to="/all_dogs"
+              to="#"
               id="AppName"
               >My Best Friend
             </NavLink>
 
             <NavLink
-              to="#"
+              to="/all_dogs"
               id="AppName"
-              onClick={()=>this.toggleChooseBreed()}
               >All Breeds
             </NavLink>
           </ul>
         </nav>
-
-        {!this.state.chooseBreed ?
-          null
-        :
-          <BreedMenu />
-        }
-
       </header>
     );
   }
