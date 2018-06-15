@@ -37,9 +37,7 @@ class Main extends Component {
           <img className="gds-card__img" src="./images/sample-1.jpg" alt={breedName} />
         </div>
         <div className="gds-card__block">
-            <h4 className="gds-card__title">{breedName}</h4>
-            <h2 className="gds-card__hero gds-text--header-md gds-text--hero" onClick={() => this.toggleSelectedBreed(breedName)}>{breedName}</h2>
-            <p className="gds-card__text">I have subBreeds</p>
+          <h2 className="gds-card__hero gds-text--header-md gds-text--hero" onClick={() => this.toggleSelectedBreed(breedName)}>{breedName}</h2>
         </div>
       </div>
     );
