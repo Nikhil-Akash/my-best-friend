@@ -14,22 +14,19 @@ class SubBreedMenu extends Component {
   render() {
     const breedName = this.props.breedName
     const theSubBreeds = this.props.subBreeds.map((subBreed, index) =>
-      <li key={index} className="gds-ranker__item">
-        <div className="gds-ranker__item-icon" data-tooltip={subBreed}>
-          <img className="gds-ranker__image" src="https://assets.ggops.com/images/ken.png" alt={subBreed} onClick={()=>this.toggleSelectSubBreed(breedName, subBreed)}/>
+      <div className="gds-ranker-grid__ensign">
+        <span className="gds-number-circle">{index+1}</span>
+        <div className="gds-ranker-ensign__content">
+            <span className="gds-ranker-ensign__title--lg" onClick={()=>this.toggleSelectSubBreed(breedName, subBreed)}>{subBreed}</span>
         </div>
-        <div className="gds-ranker__item-number gds-ranker__item-number--secondary">{index}</div>
-      </li>
+      </div>
     );
 
     return (
       <div>
         <h4 className="-text-center">Choose a Sub-Breed</h4>
-        <div className="gds-ranker gds-ranker--lg">
-          <ul className="gds-ranker__list">
-            {theSubBreeds}
-          </ul>
-          <div className="gds-ranker__connector"></div>
+        <div className="gds-ranker-grid">
+          {theSubBreeds}
         </div>
       </div>
     );
