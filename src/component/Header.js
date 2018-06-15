@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import LogoButton from './LogoButton';
-import BreedMenu from '../container/breedMenu';
 import { NavLink } from 'react-router-dom';
 
 class Header extends Component {
